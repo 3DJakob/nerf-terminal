@@ -10,11 +10,11 @@ Here is a simple instruction on how to use it.
 
 ## 1
 
-Clone the repository to your computer and open ##index.html## in your favorite text editor.
+Clone the repository to your computer and open **index.html** in your favorite text editor.
 
 ## 2
 
-Change the **phrase1**, **phrase2** and **phrase3#** variables to your passphrases.
+Change the **phrase1**, **phrase2** and **phrase3** variables to your passphrases.
 
 ## 3
 
