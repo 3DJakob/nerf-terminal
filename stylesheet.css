@@ -8,6 +8,28 @@ body {
   height: 100vh;
 }
 
+body div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#loadingbar {
+  height: 30px;
+  width: 400px;
+  background-color: #ffff9d;
+  display: none;
+}
+
+#loadingbar div {
+  width: 0%;
+  height: 100%;
+  background-color: #beeb9f;
+  animation: load 5s normal forwards linear;
+  align-self: flex-start;
+}
+
 h1, h2, h3, p, a {
   font-family: monospace;
   color: white;
@@ -27,4 +49,9 @@ input {
     0% {opacity: 0.6;}
     50% {opacity: 1;}
     100% {opacity: 0.6;}
+}
+
+@keyframes load {
+    0% {width: 0%;}
+    100% {width: 100%;}
 }

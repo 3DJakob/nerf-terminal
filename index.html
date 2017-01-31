@@ -6,25 +6,36 @@
     <link rel="stylesheet" href="stylesheet.css">
   </head>
   <body id="body">
-    <h1>WARNING! Input password to call for backup!</h1>
-    <h3>Phrase 1</h3>
-    <input type="password" name="password" value="" id="input1" onchange="input1()">
-    <h3>Phrase 2</h3>
-    <input type="password" name="password" value="" id="input2" onchange="input2()">
-    <h3>Phrase 3</h3>
-    <input type="password" name="password" value="" id="input3" onchange="input3()">
+    <h1 id="header">WARNING! Input password to call for backup!</h1>
+    <div id="loadingbar"><div></div></div>
+    <div id="inputs">
+      <h3>Phrase 1</h3>
+      <input type="password" name="password" value="" id="input1" onchange="input1()">
+      <h3>Phrase 2</h3>
+      <input type="password" name="password" value="" id="input2" onchange="input2()">
+      <h3>Phrase 3</h3>
+      <input type="password" name="password" value="" id="input3" onchange="input3()">
+    </div>
     <script type="text/javascript">
 
-      var phrase1 = 'test'
+      var phrase1 = 'test' // INSERT PASSWORDS
       var phrase2 = 'of'
       var phrase3 = 'code'
+
+      var one;
+      var two;
+      var three;
 
       function input1() {
         var input = document.getElementById("input1").value;
         if (phrase1 == input) {
           document.getElementById('input1').style.backgroundColor = '#beeb9f'
+          one = true
+          complete()
         } else {
           document.getElementById('input1').style.backgroundColor = '#ff6138'
+          one = false
+          complete()
           if (input.length == 0) {
             document.getElementById('input1').style.backgroundColor = 'white'
           }
@@ -35,8 +46,11 @@
         var input = document.getElementById("input2").value;
         if (phrase2 == input) {
           document.getElementById('input2').style.backgroundColor = '#beeb9f'
+          two = true
+          complete()
         } else {
           document.getElementById('input2').style.backgroundColor = '#ff6138'
+          two = false
           if (input.length == 0) {
             document.getElementById('input2').style.backgroundColor = 'white'
           }
@@ -47,11 +61,30 @@
         var input = document.getElementById("input3").value;
         if (phrase3 == input) {
           document.getElementById('input3').style.backgroundColor = '#beeb9f'
+          three = true
+          complete()
         } else {
           document.getElementById('input3').style.backgroundColor = '#ff6138'
+          three = false
           if (input.length == 0) {
             document.getElementById('input3').style.backgroundColor = 'white'
           }
+        }
+      }
+
+      function complete() {
+        if (one && two && three) {
+          document.getElementById('body').style.backgroundColor = '#00a388'
+          document.getElementById('inputs').style.display = 'none'
+          document.getElementById('loadingbar').style.display = 'block'
+          document.getElementById('header').innerHTML = 'Awaiting backup!'
+          setTimeout(function () {
+            document.getElementById('header').style.animation = 'none'
+            document.getElementById('loadingbar').style.display = 'none'
+            document.getElementById('header').innerHTML = 'Backup has arrived!'
+          }, 5000)
+        } else {
+          document.getElementById('body').style.backgroundColor = 'red'
         }
       }
     </script>
