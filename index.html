@@ -5,8 +5,55 @@
     <title>Zombie terminal</title>
     <link rel="stylesheet" href="stylesheet.css">
   </head>
-  <body>
+  <body id="body">
     <h1>WARNING! Input password to call for backup!</h1>
-    <input type="password" name="password" value="">
+    <h3>Phrase 1</h3>
+    <input type="password" name="password" value="" id="input1" onchange="input1()">
+    <h3>Phrase 2</h3>
+    <input type="password" name="password" value="" id="input2" onchange="input2()">
+    <h3>Phrase 3</h3>
+    <input type="password" name="password" value="" id="input3" onchange="input3()">
+    <script type="text/javascript">
+
+      var phrase1 = 'test'
+      var phrase2 = 'of'
+      var phrase3 = 'code'
+
+      function input1() {
+        var input = document.getElementById("input1").value;
+        if (phrase1 == input) {
+          document.getElementById('input1').style.backgroundColor = '#beeb9f'
+        } else {
+          document.getElementById('input1').style.backgroundColor = '#ff6138'
+          if (input.length == 0) {
+            document.getElementById('input1').style.backgroundColor = 'white'
+          }
+        }
+      }
+
+      function input2() {
+        var input = document.getElementById("input2").value;
+        if (phrase2 == input) {
+          document.getElementById('input2').style.backgroundColor = '#beeb9f'
+        } else {
+          document.getElementById('input2').style.backgroundColor = '#ff6138'
+          if (input.length == 0) {
+            document.getElementById('input2').style.backgroundColor = 'white'
+          }
+        }
+      }
+
+      function input3() {
+        var input = document.getElementById("input3").value;
+        if (phrase3 == input) {
+          document.getElementById('input3').style.backgroundColor = '#beeb9f'
+        } else {
+          document.getElementById('input3').style.backgroundColor = '#ff6138'
+          if (input.length == 0) {
+            document.getElementById('input3').style.backgroundColor = 'white'
+          }
+        }
+      }
+    </script>
   </body>
 </html>

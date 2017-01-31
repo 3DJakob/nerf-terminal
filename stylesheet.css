@@ -8,11 +8,23 @@ body {
   height: 100vh;
 }
 
-h1 {
+h1, h2, h3, p, a {
   font-family: monospace;
   color: white;
 }
 
-input {
+h1 {
+  animation: blink 1s infinite;
+}
 
+input {
+  border: none;
+  padding: 3px;
+  border-radius: 2px;
+}
+
+@keyframes blink {
+    0% {opacity: 0.6;}
+    50% {opacity: 1;}
+    100% {opacity: 0.6;}
 }
